@@ -40,9 +40,33 @@ namespace motoros2
 		public void SumPrices(List<Motor> motoros)
 		{
 			double allPrice = 0;
-			allPrice += motoros[0].PriceInEuro;
+			for (int i = 0; i < motoros.Count; i++)
+			{
+				
+				allPrice += motoros[i].PriceInEuro;
 
+				
+			}
 			Console.WriteLine(allPrice);
+
 		}
+
+		public bool Contain(string search, List<Motor> motoros)
+		{
+			foreach (var item in motoros)
+			{
+				if (item.Brand == search)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+
+
+		
+
 	}
 }

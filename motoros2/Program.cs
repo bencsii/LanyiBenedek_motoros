@@ -12,6 +12,8 @@
 			stat1.ReadFromFile("motors.txt", motoros);
 			//stat1.ItemsOut(motoros);
 			stat1.SumPrices(motoros);
+			stat1.Contain("Yamaha", motoros);
+			Console.WriteLine(stat1.Contain("Yamaha", motoros)? "Brand found  Yamaha": "Not found");
 		}
 	}
 }
