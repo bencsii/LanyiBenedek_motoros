@@ -36,5 +36,13 @@ namespace motoros2
 				Console.WriteLine(item.Brand + " " + item.Name + " " + item.ReleaseYear + " " + item.Performance + " " + item.PriceInEuro);
 			}
 		}
+
+		public void SumPrices(List<Motor> motoros)
+		{
+			double allPrice = 0;
+			allPrice += motoros[0].PriceInEuro;
+
+			Console.WriteLine(allPrice);
+		}
 	}
 }

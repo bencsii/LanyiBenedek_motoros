@@ -10,7 +10,8 @@
 			Statisztika stat1 = new Statisztika();
 
 			stat1.ReadFromFile("motors.txt", motoros);
-			stat1.ItemsOut(motoros);
+			//stat1.ItemsOut(motoros);
+			stat1.SumPrices(motoros);
 		}
 	}
 }
