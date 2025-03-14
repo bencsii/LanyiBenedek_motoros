@@ -14,6 +14,7 @@
 			stat1.SumPrices(motoros);
 			stat1.Contain("Yamaha", motoros);
 			Console.WriteLine(stat1.Contain("Yamaha", motoros)? "Brand found  Yamaha": "Not found");
+			stat1.Oldest(motoros);
 		}
 	}
 }

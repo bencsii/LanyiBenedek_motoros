@@ -63,6 +63,27 @@ namespace motoros2
 			return false;
 		}
 
+		public void Oldest(List<Motor> motoros)
+		{
+			int year1 = motoros[0].ReleaseYear;
+			int year2 = motoros[0].ReleaseYear;
+
+			for (int i = 1; i < motoros.Count; i++)
+			{
+				if (motoros[i].ReleaseYear < year1)
+				{
+					year1 = motoros[i].ReleaseYear;
+				}
+				if (motoros[i].ReleaseYear > year2)
+				{
+					year2 = motoros[i].ReleaseYear;
+					Console.WriteLine();
+				}
+			}
+			Console.WriteLine(year1);
+			Console.WriteLine(year2);
+		}
+
 
 
 
