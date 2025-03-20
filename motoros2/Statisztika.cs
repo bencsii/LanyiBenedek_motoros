@@ -63,31 +63,65 @@ namespace motoros2
 			return false;
 		}
 
-		public void Oldest(List<Motor> motoros)
-		{
-			int year1 = motoros[0].ReleaseYear;
-			int year2 = motoros[0].ReleaseYear;
-
-			for (int i = 1; i < motoros.Count; i++)
-			{
-				if (motoros[i].ReleaseYear < year1)
-				{
-					year1 = motoros[i].ReleaseYear;
-				}
-				if (motoros[i].ReleaseYear > year2)
-				{
-					year2 = motoros[i].ReleaseYear;
-					Console.WriteLine();
-				}
-			}
-			Console.WriteLine(year1);
-			Console.WriteLine(year2);
-		}
-
-
+        public void Oldest(List<Motor> motoros)
+        {
+            
+            for (int i = 0; i < motoros.Count - 1; i++)
+            {
+                for (int j = 0; j < motoros.Count - 1 - i; j++)
+                {
+                    if (motoros[j].ReleaseYear > motoros[j + 1].ReleaseYear)
+                    {
+                        
+                        Motor temp = motoros[j];
+                        motoros[j] = motoros[j + 1];
+                        motoros[j + 1] = temp;
+                    }
+                }
+            }
+            Motor oldestMotor = motoros[0];
+            
+            Console.WriteLine($"A legregebbi motor: {oldestMotor.Brand} {oldestMotor.Name} ({oldestMotor.ReleaseYear})");
+        }
 
 
-		
+        public int SumPricesBasedOnBrand(string brandName)
+        {
+            double sum = 0;
 
-	}
+            for (int i = 0; i < motoros.Count; i++)
+            {
+                if (motoros[i].Brand == brandName)
+                {
+                    sum += motoros[i].PriceInEuro;
+                }
+            }
+
+            return (int)sum;
+
+        }
+
+
+        public void Sort(List<Motor> motoros)
+        {
+            for (int i = motoros.Count; i > 0; i--)
+            {
+                for (int j = 0; j < motoros.Count - 1; j++)
+                {
+                    if (motoros[j].Performance < motoros[j + 1].Performance)
+                    {
+                        Motor temp = motoros[j];
+						motoros[j] = motoros[j + 1];
+                        motoros[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+    }
 }
